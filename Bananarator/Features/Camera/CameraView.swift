@@ -93,7 +93,7 @@ struct CameraView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
 
-            Text("Dickerator needs camera access to photograph your banana masterpiece.")
+            Text("Bananarator needs camera access to photograph your banana masterpiece.")
                 .multilineTextAlignment(.center)
                 .foregroundColor(.gray)
                 .padding(.horizontal, 40)

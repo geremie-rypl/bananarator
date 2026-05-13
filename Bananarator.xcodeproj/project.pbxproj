@@ -31,7 +31,7 @@
 		A6AF249DADE59092BE321A1C /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E05728EA3780EDF008921C0 /* CameraService.swift */; };
 		B259DD05E11FAAC246213357 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296993D473A333F753B61DF /* AppState.swift */; };
 		B47C37BB824FFBDBF06F7DCB /* StoreKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4602669762CEF0F46C454E3 /* StoreKitService.swift */; };
-		C847CA8D949D28C49B5F2997 /* DickeratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671CE79E242D2DBC7447C2FE /* DickeratorApp.swift */; };
+		C847CA8D949D28C49B5F2997 /* BananaratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671CE79E242D2DBC7447C2FE /* BananaratorApp.swift */; };
 		CF55F4E16429C3CE645131EA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9AC4416AD5E4DC3CF058C4F1 /* FirebaseFirestore */; };
 		CF60C0E8F09B2E5DC0CA522D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 688BE8C809FDF984DD77BB3C /* FirebaseStorage */; };
 		D0CFB78E26D3493535CDA077 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 923642288AAC9B3A75031424 /* Assets.xcassets */; };
@@ -47,9 +47,9 @@
 		41938E9321405BD8600A99CF /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		46D145229B6543C445C718AE /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		4EBD8857CB0467D202E83233 /* EditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
-		5ED8856EDA226B7855B2281C /* Dickerator.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Dickerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ED8856EDA226B7855B2281C /* Bananarator.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Bananarator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FA7FD0B3E194EADA537BC9 /* BananaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaCard.swift; sourceTree = "<group>"; };
-		671CE79E242D2DBC7447C2FE /* DickeratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DickeratorApp.swift; sourceTree = "<group>"; };
+		671CE79E242D2DBC7447C2FE /* BananaratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaratorApp.swift; sourceTree = "<group>"; };
 		68789611123CCE3CBE30C972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6E36023D1AB975756E49714C /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
 		6F3E3C53D8EFB73E343533E6 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		57B5297FAB21BB79C71C5E1C = {
 			isa = PBXGroup;
 			children = (
-				8136E63133D436B5DCB5C133 /* Dickerator */,
+				8136E63133D436B5DCB5C133 /* Bananarator */,
 				AC22C63FF1E944D2FF87B6C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -157,7 +157,7 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
-		8136E63133D436B5DCB5C133 /* Dickerator */ = {
+		8136E63133D436B5DCB5C133 /* Bananarator */ = {
 			isa = PBXGroup;
 			children = (
 				68789611123CCE3CBE30C972 /* Info.plist */,
@@ -167,13 +167,13 @@
 				F2622C5A0FBFC785B885B57D /* Resources */,
 				71CDD26BF337210DCE7B8901 /* Services */,
 			);
-			path = Dickerator;
+			path = Bananarator;
 			sourceTree = "<group>";
 		};
 		AC22C63FF1E944D2FF87B6C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5ED8856EDA226B7855B2281C /* Dickerator.app */,
+				5ED8856EDA226B7855B2281C /* Bananarator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				B296993D473A333F753B61DF /* AppState.swift */,
-				671CE79E242D2DBC7447C2FE /* DickeratorApp.swift */,
+				671CE79E242D2DBC7447C2FE /* BananaratorApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -221,9 +221,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F3511B2F3E091EFC69E3ACB8 /* Dickerator */ = {
+		F3511B2F3E091EFC69E3ACB8 /* Bananarator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C14B07C6597876791269CF24 /* Build configuration list for PBXNativeTarget "Dickerator" */;
+			buildConfigurationList = C14B07C6597876791269CF24 /* Build configuration list for PBXNativeTarget "Bananarator" */;
 			buildPhases = (
 				A4339DD525AC109C32898F3C /* [CP] Check Pods Manifest.lock */,
 				B41EF8DB731E8A7E1F2CC380 /* Sources */,
@@ -234,14 +234,14 @@
 			);
 			dependencies = (
 			);
-			name = Dickerator;
+			name = Bananarator;
 			packageProductDependencies = (
 				10D95AE8BFF7EDCB06BB89DF /* FirebaseAuth */,
 				9AC4416AD5E4DC3CF058C4F1 /* FirebaseFirestore */,
 				688BE8C809FDF984DD77BB3C /* FirebaseStorage */,
 			);
-			productName = Dickerator;
-			productReference = 5ED8856EDA226B7855B2281C /* Dickerator.app */;
+			productName = Bananarator;
+			productReference = 5ED8856EDA226B7855B2281C /* Bananarator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -259,7 +259,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 668D99FD46E885B9AC1DEB70 /* Build configuration list for PBXProject "Dickerator" */;
+			buildConfigurationList = 668D99FD46E885B9AC1DEB70 /* Build configuration list for PBXProject "Bananarator" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -276,7 +276,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F3511B2F3E091EFC69E3ACB8 /* Dickerator */,
+				F3511B2F3E091EFC69E3ACB8 /* Bananarator */,
 			);
 		};
 /* End PBXProject section */
@@ -328,7 +328,7 @@
 				A6AF249DADE59092BE321A1C /* CameraService.swift in Sources */,
 				688D1512AEC975980E492389 /* CameraView.swift in Sources */,
 				01FC241111B6516FB7D02B81 /* CameraViewModel.swift in Sources */,
-				C847CA8D949D28C49B5F2997 /* DickeratorApp.swift in Sources */,
+				C847CA8D949D28C49B5F2997 /* BananaratorApp.swift in Sources */,
 				098EE0C6209C7040C715E704 /* EditorView.swift in Sources */,
 				8B3713F14B7DC05A5E6B362F /* EditorViewModel.swift in Sources */,
 				1A364B73FC2BDDCD3DA0E961 /* ExportService.swift in Sources */,
@@ -482,12 +482,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = Dickerator/Info.plist;
+				INFOPLIST_FILE = Bananarator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dickerator.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananarator.app;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -499,12 +499,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = Dickerator/Info.plist;
+				INFOPLIST_FILE = Bananarator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dickerator.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bananarator.app;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -513,7 +513,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		668D99FD46E885B9AC1DEB70 /* Build configuration list for PBXProject "Dickerator" */ = {
+		668D99FD46E885B9AC1DEB70 /* Build configuration list for PBXProject "Bananarator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13E1414DBF2EB2EE11069E48 /* Debug */,
@@ -522,7 +522,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		C14B07C6597876791269CF24 /* Build configuration list for PBXNativeTarget "Dickerator" */ = {
+		C14B07C6597876791269CF24 /* Build configuration list for PBXNativeTarget "Bananarator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F71B942680215863D959D4DA /* Debug */,

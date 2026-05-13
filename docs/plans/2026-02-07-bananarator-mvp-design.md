@@ -1,4 +1,4 @@
-# Dickerator MVP Design
+# Bananarator MVP Design
 
 **Date**: 2026-02-07
 **Status**: Approved
@@ -7,7 +7,7 @@
 
 ## Overview
 
-Dickerator is a campy, Gen Z-focused photo app that transforms banana-shaped objects into shareable, absurd art using curated filters and stickers.
+Bananarator is a campy, Gen Z-focused photo app that transforms banana-shaped objects into shareable, absurd art using curated filters and stickers.
 
 **Target**: Gen Z and LGBTQ+ audiences who enjoy ironic humor and novelty apps.
 
@@ -28,9 +28,9 @@ Dickerator is a campy, Gen Z-focused photo app that transforms banana-shaped obj
 ## Project Structure
 
 ```
-Dickerator/
+Bananarator/
 ├── App/
-│   ├── DickeratorApp.swift          # Entry point, Firebase init
+│   ├── BananaratorApp.swift          # Entry point, Firebase init
 │   └── AppState.swift               # Global app state (auth, entitlements)
 ├── Features/
 │   ├── Camera/
@@ -215,7 +215,7 @@ struct UserProfile: Codable {
 
 ```xml
 <key>NSCameraUsageDescription</key>
-<string>Dickerator needs camera access to photograph your banana masterpiece.</string>
+<string>Bananarator needs camera access to photograph your banana masterpiece.</string>
 
 <key>NSPhotoLibraryAddUsageDescription</key>
 <string>Save your banana art to your camera roll.</string>
@@ -223,7 +223,7 @@ struct UserProfile: Codable {
 
 ### App Store Review Note
 
-> Dickerator is a campy, Gen Z-focused photo art app that transforms banana-shaped objects into shareable, absurd creations using curated filters and stickers.
+> Bananarator is a campy, Gen Z-focused photo art app that transforms banana-shaped objects into shareable, absurd creations using curated filters and stickers.
 >
 > **Content positioning**: Playful novelty art tool, not adult content. Humor is suggestive and campy but never explicit.
 >
