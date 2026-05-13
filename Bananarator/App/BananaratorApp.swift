@@ -2,7 +2,7 @@ import SwiftUI
 import FirebaseCore
 
 @main
-struct DickeratorApp: App {
+struct BananaratorApp: App {
     @StateObject private var appState = AppState()
 
     init() {

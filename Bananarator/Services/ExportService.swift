@@ -105,7 +105,7 @@ class ExportService {
     }
 
     private func drawWatermark(in context: CGContext, size: CGSize) {
-        let text = "Made with Dickerator"
+        let text = "Made with Bananarator"
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 14, weight: .medium),
             .foregroundColor: UIColor.white.withAlphaComponent(0.7)

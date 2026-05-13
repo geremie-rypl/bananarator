@@ -2,14 +2,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "Dickerator",
+    name: "Bananarator",
     platforms: [
         .iOS(.v17)
     ],
     products: [
         .library(
-            name: "Dickerator",
-            targets: ["Dickerator"]
+            name: "Bananarator",
+            targets: ["Bananarator"]
         )
     ],
     dependencies: [
@@ -17,13 +17,13 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Dickerator",
+            name: "Bananarator",
             dependencies: [
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
                 .product(name: "FirebaseFirestore", package: "firebase-ios-sdk"),
                 .product(name: "FirebaseStorage", package: "firebase-ios-sdk")
             ],
-            path: "Dickerator"
+            path: "Bananarator"
         )
     ]
 )

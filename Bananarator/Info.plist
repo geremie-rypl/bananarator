@@ -43,7 +43,7 @@
         <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
     <key>NSCameraUsageDescription</key>
-    <string>Dickerator needs camera access to photograph your banana masterpiece.</string>
+    <string>Bananarator needs camera access to photograph your banana masterpiece.</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
     <string>Save your banana art to your camera roll.</string>
     <key>ITSAppUsesNonExemptEncryption</key>
