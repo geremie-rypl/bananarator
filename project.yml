@@ -24,17 +24,17 @@ targets:
     sources:
       - path: Bananarator
         excludes:
-          - "**/*.xcassets"
-      - path: Bananarator/Resources/Assets.xcassets
+          - "Resources/Filters/**"
+          - "Resources/Stickers/**"
     resources:
-      - path: Bananarator/Resources
-        excludes:
-          - "**/*.swift"
+      - path: Bananarator/Resources/Filters
+        type: folder
+      - path: Bananarator/Resources/Stickers
+        type: folder
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.bananarator.app
         INFOPLIST_FILE: Bananarator/Info.plist
-        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
     dependencies:
       - package: FirebaseSDK
@@ -43,12 +43,6 @@ targets:
         product: FirebaseFirestore
       - package: FirebaseSDK
         product: FirebaseStorage
-    preBuildScripts:
-      - name: "[CP] Check Pods Manifest.lock"
-        script: |
-          # Placeholder for any pre-build scripts
-        showEnvVars: false
-
 schemes:
   Bananarator:
     build:

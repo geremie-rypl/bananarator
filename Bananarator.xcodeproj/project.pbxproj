@@ -18,11 +18,9 @@
 		538EF86968B15BE988332DCF /* BananaratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679C8E272A825E08F33E242 /* BananaratorApp.swift */; };
 		628202BD067ECC679154F67C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CEB70F80D480F39395D86 /* Assets.xcassets */; };
 		6B3AE06E85C0879348F3544B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062C797DB8017C32FE194E4 /* FirebaseService.swift */; };
-		71F72934B35FFC605E9A5780 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 9249B399B14C11516EBF6C3D /* Contents.json */; };
 		7E711F5090BCDDC318D89B85 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B423AADBB6F409B2F1617B /* UserProfile.swift */; };
 		A155D5BEAE0661771BDAD77E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CF411BF0B66E2DE3EE522 /* AnalyticsService.swift */; };
 		A9BF7FAC1D9FB895CA8358C4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F130D286A1E51DDABDB79C84 /* FirebaseStorage */; };
-		AAED96DAC91669BC55FB4B84 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = F7966CA534A5E1D40083075B /* Contents.json */; };
 		ADA4E2A0B93E8E9CE3A00747 /* StickerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457A2249B84A6E26B738F6CB /* StickerPack.swift */; };
 		AE5618AFAF5261C568A1D696 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B955F3FD7E2C15206A8C2D /* CameraView.swift */; };
 		AFFA78A7D7EEBB640AFE10A8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CB5C69285F9D6EF6E33E797D /* FirebaseFirestore */; };
@@ -56,7 +54,6 @@
 		6F9CEB70F80D480F39395D86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B94B7E6744AD34FBB71C40 /* BananaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaCard.swift; sourceTree = "<group>"; };
 		8A6EF3C35E272681AEE94943 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9249B399B14C11516EBF6C3D /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		A6A4CD4900AB82371D3012F6 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		A7A3B72F16885C2C8064A9C6 /* StoreKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitService.swift; sourceTree = "<group>"; };
 		ACCDF597E07412D85480EE54 /* StickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerView.swift; sourceTree = "<group>"; };
@@ -66,7 +63,6 @@
 		D91238296AA2CE407D4809C4 /* ShowcaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseView.swift; sourceTree = "<group>"; };
 		DC04E942E28F32356C507E21 /* ShowcaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseViewModel.swift; sourceTree = "<group>"; };
 		DE23FD6071A02175C1F36796 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
-		F7966CA534A5E1D40083075B /* Contents.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,22 +103,6 @@
 			path = Showcase;
 			sourceTree = "<group>";
 		};
-		449D72D6643293E28D21FF33 /* Filters */ = {
-			isa = PBXGroup;
-			children = (
-				F7966CA534A5E1D40083075B /* Contents.json */,
-			);
-			path = Filters;
-			sourceTree = "<group>";
-		};
-		61E6247E1CD85AFDC98E5BCD /* Stickers */ = {
-			isa = PBXGroup;
-			children = (
-				9249B399B14C11516EBF6C3D /* Contents.json */,
-			);
-			path = Stickers;
-			sourceTree = "<group>";
-		};
 		6678F54C7E28478EC6CB34E5 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,8 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				6F9CEB70F80D480F39395D86 /* Assets.xcassets */,
-				449D72D6643293E28D21FF33 /* Filters */,
-				61E6247E1CD85AFDC98E5BCD /* Stickers */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -228,7 +206,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27DE5E3FF55BA40B52A6980B /* Build configuration list for PBXNativeTarget "Bananarator" */;
 			buildPhases = (
-				EA879DA3FCFE5DC52FA97D5F /* [CP] Check Pods Manifest.lock */,
 				F63952C2B1209ADF0C2EE8E2 /* Sources */,
 				2A8D58AE4F2404816D05B6A9 /* Resources */,
 				41DED6E07D5592AC4E612366 /* Frameworks */,
@@ -290,35 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				628202BD067ECC679154F67C /* Assets.xcassets in Resources */,
-				AAED96DAC91669BC55FB4B84 /* Contents.json in Resources */,
-				71F72934B35FFC605E9A5780 /* Contents.json in Resources */,
 				22470F57ECAD26673DC81344 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		EA879DA3FCFE5DC52FA97D5F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Placeholder for any pre-build scripts\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F63952C2B1209ADF0C2EE8E2 /* Sources */ = {
