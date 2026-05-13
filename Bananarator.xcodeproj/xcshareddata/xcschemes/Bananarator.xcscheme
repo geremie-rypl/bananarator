@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F3511B2F3E091EFC69E3ACB8"
-               BuildableName = "Dickerator.app"
-               BlueprintName = "Dickerator"
-               ReferencedContainer = "container:Dickerator.xcodeproj">
+               BlueprintIdentifier = "280663680BC0B8705BA30517"
+               BuildableName = "Bananarator.app"
+               BlueprintName = "Bananarator"
+               ReferencedContainer = "container:Bananarator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F3511B2F3E091EFC69E3ACB8"
-            BuildableName = "Dickerator.app"
-            BlueprintName = "Dickerator"
-            ReferencedContainer = "container:Dickerator.xcodeproj">
+            BlueprintIdentifier = "280663680BC0B8705BA30517"
+            BuildableName = "Bananarator.app"
+            BlueprintName = "Bananarator"
+            ReferencedContainer = "container:Bananarator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -57,10 +57,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F3511B2F3E091EFC69E3ACB8"
-            BuildableName = "Dickerator.app"
-            BlueprintName = "Dickerator"
-            ReferencedContainer = "container:Dickerator.xcodeproj">
+            BlueprintIdentifier = "280663680BC0B8705BA30517"
+            BuildableName = "Bananarator.app"
+            BlueprintName = "Bananarator"
+            ReferencedContainer = "container:Bananarator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -76,10 +76,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F3511B2F3E091EFC69E3ACB8"
-            BuildableName = "Dickerator.app"
-            BlueprintName = "Dickerator"
-            ReferencedContainer = "container:Dickerator.xcodeproj">
+            BlueprintIdentifier = "280663680BC0B8705BA30517"
+            BuildableName = "Bananarator.app"
+            BlueprintName = "Bananarator"
+            ReferencedContainer = "container:Bananarator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
