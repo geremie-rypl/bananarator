@@ -40,10 +40,13 @@ struct StickerView: View {
                 Button {
                     onDelete()
                 } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title2)
-                        .foregroundColor(.white)
-                        .background(Circle().fill(Color.red))
+                    Image(systemName: "xmark")
+                        .font(.system(size: 14, weight: .black))
+                        .foregroundStyle(.white)
+                        .frame(width: 28, height: 28)
+                        .background(Circle().fill(Color.bannerRed))
+                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                        .bananaShadow(BananaTheme.softShadow)
                 }
             }
             Spacer()
@@ -101,21 +104,27 @@ struct StickerPickerView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 20) {
-                    ForEach(availablePacks) { pack in
-                        stickerPackSection(pack)
+            ZStack {
+                BananaTheme.partyRadial.ignoresSafeArea()
+                ConfettiBackground(showsGradient: false, density: 0.55)
+                    .opacity(0.5)
+
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 24) {
+                        ForEach(availablePacks) { pack in
+                            stickerPackSection(pack)
+                        }
                     }
+                    .padding(20)
                 }
-                .padding()
             }
-            .navigationTitle("Stickers")
+            .navigationTitle("Sticker Drawer")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Done") {
-                        dismiss()
-                    }
+                    Button("Done") { dismiss() }
+                        .font(BananaTheme.body(15))
+                        .foregroundStyle(.white)
                 }
             }
         }
@@ -128,23 +137,28 @@ struct StickerPickerView: View {
     }
 
     private func stickerPackSection(_ pack: StickerPack) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
+        let isLocked = !pack.isFree && !appState.isContentUnlocked(pack.id)
+        return VStack(alignment: .leading, spacing: 14) {
+            HStack(spacing: 8) {
                 Text(pack.name)
-                    .font(.headline)
+                    .font(BananaTheme.title(22))
+                    .foregroundStyle(Color.dapperBrown)
 
-                if !pack.isFree && !appState.isContentUnlocked(pack.id) {
+                if isLocked {
                     Image(systemName: "lock.fill")
-                        .foregroundColor(.orange)
+                        .font(.system(size: 14, weight: .black))
+                        .foregroundStyle(.white)
+                        .padding(6)
+                        .background(Circle().fill(BananaTheme.pinkPurple))
                 }
+
+                Spacer()
             }
 
             LazyVGrid(columns: [
-                GridItem(.adaptive(minimum: 70), spacing: 12)
-            ], spacing: 12) {
+                GridItem(.adaptive(minimum: 84), spacing: 14)
+            ], spacing: 14) {
                 ForEach(pack.stickers) { sticker in
-                    let isLocked = !pack.isFree && !appState.isContentUnlocked(pack.id)
-
                     StickerThumbnail(
                         sticker: sticker,
                         isLocked: isLocked
@@ -157,6 +171,9 @@ struct StickerPickerView: View {
                 }
             }
         }
+        .padding(16)
+        .bananaCard(borderColor: isLocked ? .partyPurple : .partyPink,
+                    borderWidth: 4, padding: 0)
     }
 }
 
@@ -168,22 +185,30 @@ struct StickerThumbnail: View {
     var body: some View {
         Button(action: onTap) {
             ZStack {
-                Image(sticker.imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 60, height: 60)
-                    .padding(8)
-                    .background(Color.gray.opacity(0.1))
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(BananaTheme.cream)
+
+                if UIImage(named: sticker.imageName) != nil {
+                    Image(sticker.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(10)
+                } else {
+                    BananaPlaceholderArt(symbol: "sparkles", tint: .partyPink, size: 56)
+                }
 
                 if isLocked {
-                    Color.black.opacity(0.5)
-                        .clipShape(RoundedRectangle(cornerRadius: 12))
-
-                    Image(systemName: "lock.fill")
-                        .foregroundColor(.white)
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(Color.black.opacity(0.45))
+                    GlowingLock(size: 22)
                 }
             }
+            .frame(width: 76, height: 76)
+            .overlay(
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .stroke(Color.white, lineWidth: 3)
+            )
+            .bananaShadow(BananaTheme.softShadow)
         }
         .buttonStyle(.plain)
     }

@@ -5,10 +5,12 @@ struct CameraView: View {
     @StateObject private var viewModel = CameraViewModel()
     @EnvironmentObject var appState: AppState
 
+    @State private var captureTapped = false
+
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.black.ignoresSafeArea()
+                BananaTheme.partyRadial.ignoresSafeArea()
 
                 if viewModel.isAuthorized {
                     cameraContent
@@ -24,87 +26,134 @@ struct CameraView: View {
                 }
             }
         }
-        .onAppear {
-            viewModel.onAppear()
-        }
-        .onDisappear {
-            viewModel.onDisappear()
-        }
+        .onAppear { viewModel.onAppear() }
+        .onDisappear { viewModel.onDisappear() }
     }
 
     private var cameraContent: some View {
         VStack(spacing: 0) {
-            // Camera preview
-            CameraPreviewView(cameraService: viewModel.cameraService)
-                .ignoresSafeArea()
+            header
+                .padding(.top, 4)
 
-            // Controls
+            // Camera preview wrapped in a sticker-card
+            CameraPreviewView(cameraService: viewModel.cameraService)
+                .aspectRatio(3.0/4.0, contentMode: .fit)
+                .clipShape(RoundedRectangle(cornerRadius: BananaTheme.cardCornerRadius, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: BananaTheme.cardCornerRadius, style: .continuous)
+                        .stroke(Color.white, lineWidth: 6)
+                )
+                .bananaShadow(BananaTheme.cardShadow)
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
+
+            Spacer(minLength: 8)
+
             controlBar
+                .padding(.horizontal, 24)
+                .padding(.bottom, 12)
         }
     }
 
+    private var header: some View {
+        BananaBanner("BANANARATOR", subtitle: "Decorate your banana, darling")
+            .padding(.bottom, 4)
+    }
+
     private var controlBar: some View {
-        HStack(spacing: 40) {
+        HStack(spacing: 32) {
             // Flash toggle
             Button {
                 viewModel.toggleFlash()
             } label: {
                 Image(systemName: viewModel.isFlashOn ? "bolt.fill" : "bolt.slash.fill")
-                    .font(.title2)
-                    .foregroundColor(.white)
             }
+            .buttonStyle(BananaCircleButtonStyle(tint: .yellow, size: 56))
 
-            // Capture button
+            // Capture button (huge, with squeeze animation)
             Button {
+                withAnimation(.spring(response: 0.22, dampingFraction: 0.5)) {
+                    captureTapped.toggle()
+                }
                 viewModel.capturePhoto()
             } label: {
-                Circle()
-                    .stroke(Color.white, lineWidth: 4)
-                    .frame(width: 70, height: 70)
-                    .overlay(
-                        Circle()
-                            .fill(Color.white)
-                            .frame(width: 60, height: 60)
-                    )
+                ZStack {
+                    Circle()
+                        .stroke(BananaTheme.pinkPurple, lineWidth: 8)
+                        .frame(width: 108, height: 108)
+                        .background(Circle().fill(Color.white))
+                        .bananaShadow(BananaTheme.cardShadow)
+
+                    Circle()
+                        .fill(BananaTheme.pinkPurple)
+                        .frame(width: 76, height: 76)
+
+                    Image(systemName: "camera.fill")
+                        .font(.system(size: 32, weight: .black))
+                        .foregroundStyle(Color.white)
+                }
+                .scaleEffect(captureTapped ? 0.9 : 1.0)
             }
+            .buttonStyle(.plain)
+            .sensoryFeedback(.impact(weight: .medium), trigger: captureTapped)
 
             // Camera flip
             Button {
                 viewModel.toggleCamera()
             } label: {
                 Image(systemName: "camera.rotate.fill")
-                    .font(.title2)
-                    .foregroundColor(.white)
             }
+            .buttonStyle(BananaCircleButtonStyle(tint: .blue, size: 56))
         }
-        .padding(.vertical, 30)
-        .frame(maxWidth: .infinity)
-        .background(Color.black.opacity(0.8))
+        .padding(.vertical, 20)
+        .padding(.horizontal, 24)
+        .background(
+            RoundedRectangle(cornerRadius: 36, style: .continuous)
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 36, style: .continuous)
+                        .stroke(Color.white.opacity(0.5), lineWidth: 2)
+                )
+        )
+        .bananaShadow(BananaTheme.cardShadow)
     }
 
     private var permissionDeniedView: some View {
         VStack(spacing: 20) {
-            Image(systemName: "camera.fill")
-                .font(.system(size: 60))
-                .foregroundColor(.gray)
+            ConfettiBackground(showsGradient: false)
+                .frame(height: 0)
+                .opacity(0) // confetti is already in the radial; keep the API consistent
 
-            Text("Camera Access Required")
-                .font(.title2)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
+            VStack(spacing: 18) {
+                Image(systemName: "camera.fill")
+                    .font(.system(size: 56, weight: .black))
+                    .foregroundStyle(BananaTheme.pinkPurple)
+                    .padding(20)
+                    .background(Circle().fill(Color.white))
+                    .bananaShadow(BananaTheme.cardShadow)
 
-            Text("Bananarator needs camera access to photograph your banana masterpiece.")
-                .multilineTextAlignment(.center)
-                .foregroundColor(.gray)
-                .padding(.horizontal, 40)
+                Text("Camera Access Required")
+                    .font(BananaTheme.title(24))
+                    .foregroundStyle(Color.dapperBrown)
 
-            Button("Open Settings") {
-                if let url = URL(string: UIApplication.openSettingsURLString) {
-                    UIApplication.shared.open(url)
+                Text("Bananarator needs camera access to photograph your banana masterpiece.")
+                    .font(BananaTheme.body(15))
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(Color.dapperBrown.opacity(0.75))
+                    .padding(.horizontal, 16)
+
+                Button("Open Settings") {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
                 }
+                .buttonStyle(BananaPillButtonStyle(variant: .primary))
+                .padding(.horizontal, 24)
+                .padding(.top, 4)
             }
-            .buttonStyle(.borderedProminent)
-            .tint(.pink)
+            .padding(28)
+            .bananaCard(borderColor: .partyPink, borderWidth: 4, padding: 0)
+            .padding(.horizontal, 24)
         }
     }
 }

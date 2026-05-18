@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F6F761FF1110F766A2BAE42 /* BananaButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0272F8203F9230D2F372A7 /* BananaButtonStyle.swift */; };
 		10CA80C54C71DE32B7278D05 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBE526875E10E99E766E659 /* CameraService.swift */; };
 		13D396B0E5F4ED2776E3DD23 /* StickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCDF597E07412D85480EE54 /* StickerView.swift */; };
 		14186DFE49087E299635B527 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8AC35DC6C8C249917235B3A4 /* FirebaseAuth */; };
+		1DA4CBD61907D623D8784094 /* ConfettiBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489AF251EF5D2868A2C68D9 /* ConfettiBackground.swift */; };
 		22470F57ECAD26673DC81344 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A6EF3C35E272681AEE94943 /* GoogleService-Info.plist */; };
 		28E46ECEAA56FCC3D2EF738A /* ExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE23FD6071A02175C1F36796 /* ExportService.swift */; };
 		2B0676EBBD9FF5398577BBB5 /* ShowcaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91238296AA2CE407D4809C4 /* ShowcaseView.swift */; };
+		36A8B552883233F6471A4BAD /* BananaCardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F6898B699E995504F54FC /* BananaCardStyle.swift */; };
 		51DBC6AE8704AC4CC1750018 /* StoreKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3B72F16885C2C8064A9C6 /* StoreKitService.swift */; };
 		5292182715A5BC491C2C4328 /* BananaPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FF26D64AD59A7419E9FE77 /* BananaPost.swift */; };
 		538EF86968B15BE988332DCF /* BananaratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679C8E272A825E08F33E242 /* BananaratorApp.swift */; };
 		628202BD067ECC679154F67C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CEB70F80D480F39395D86 /* Assets.xcassets */; };
 		6B3AE06E85C0879348F3544B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062C797DB8017C32FE194E4 /* FirebaseService.swift */; };
 		7E711F5090BCDDC318D89B85 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B423AADBB6F409B2F1617B /* UserProfile.swift */; };
+		7EAE4FCBBECBF2F932CDA748 /* BananaTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BB27F4521A6FFC032B710 /* BananaTheme.swift */; };
 		A155D5BEAE0661771BDAD77E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CF411BF0B66E2DE3EE522 /* AnalyticsService.swift */; };
 		A9BF7FAC1D9FB895CA8358C4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F130D286A1E51DDABDB79C84 /* FirebaseStorage */; };
 		ADA4E2A0B93E8E9CE3A00747 /* StickerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457A2249B84A6E26B738F6CB /* StickerPack.swift */; };
@@ -40,6 +44,7 @@
 		082269D997F3BD6CBB2892DA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		0A485D2FD67A7E8F7332313B /* FilterItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterItem.swift; sourceTree = "<group>"; };
 		2062C797DB8017C32FE194E4 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		2489AF251EF5D2868A2C68D9 /* ConfettiBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiBackground.swift; sourceTree = "<group>"; };
 		29FF26D64AD59A7419E9FE77 /* BananaPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaPost.swift; sourceTree = "<group>"; };
 		2E9AF788029F3767275FA024 /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		2FBE526875E10E99E766E659 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
@@ -54,6 +59,8 @@
 		6F9CEB70F80D480F39395D86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B94B7E6744AD34FBB71C40 /* BananaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaCard.swift; sourceTree = "<group>"; };
 		8A6EF3C35E272681AEE94943 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8B9BB27F4521A6FFC032B710 /* BananaTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaTheme.swift; sourceTree = "<group>"; };
+		9E0272F8203F9230D2F372A7 /* BananaButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaButtonStyle.swift; sourceTree = "<group>"; };
 		A6A4CD4900AB82371D3012F6 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 		A7A3B72F16885C2C8064A9C6 /* StoreKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitService.swift; sourceTree = "<group>"; };
 		ACCDF597E07412D85480EE54 /* StickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerView.swift; sourceTree = "<group>"; };
@@ -63,6 +70,7 @@
 		D91238296AA2CE407D4809C4 /* ShowcaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseView.swift; sourceTree = "<group>"; };
 		DC04E942E28F32356C507E21 /* ShowcaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseViewModel.swift; sourceTree = "<group>"; };
 		DE23FD6071A02175C1F36796 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
+		F17F6898B699E995504F54FC /* BananaCardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaCardStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +97,20 @@
 				FB9574885AE67C893F9A9F65 /* Models */,
 				80237B508BD715D23225B1CD /* Resources */,
 				D4183493C3AD693604067C9E /* Services */,
+				325B985046676B23957DAB4A /* Theme */,
 			);
 			path = Bananarator;
+			sourceTree = "<group>";
+		};
+		325B985046676B23957DAB4A /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				9E0272F8203F9230D2F372A7 /* BananaButtonStyle.swift */,
+				F17F6898B699E995504F54FC /* BananaCardStyle.swift */,
+				8B9BB27F4521A6FFC032B710 /* BananaTheme.swift */,
+				2489AF251EF5D2868A2C68D9 /* ConfettiBackground.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		434E1C8F9E344E7CD61E922C /* Showcase */ = {
@@ -280,12 +300,16 @@
 			files = (
 				A155D5BEAE0661771BDAD77E /* AnalyticsService.swift in Sources */,
 				F72ADEB8D3662B54EF320904 /* AppState.swift in Sources */,
+				0F6F761FF1110F766A2BAE42 /* BananaButtonStyle.swift in Sources */,
 				DC560D7F16D2509F6A4A534F /* BananaCard.swift in Sources */,
+				36A8B552883233F6471A4BAD /* BananaCardStyle.swift in Sources */,
 				5292182715A5BC491C2C4328 /* BananaPost.swift in Sources */,
+				7EAE4FCBBECBF2F932CDA748 /* BananaTheme.swift in Sources */,
 				538EF86968B15BE988332DCF /* BananaratorApp.swift in Sources */,
 				10CA80C54C71DE32B7278D05 /* CameraService.swift in Sources */,
 				AE5618AFAF5261C568A1D696 /* CameraView.swift in Sources */,
 				F2A580E64C3BC8F25ED48BA3 /* CameraViewModel.swift in Sources */,
+				1DA4CBD61907D623D8784094 /* ConfettiBackground.swift in Sources */,
 				C157ECA08D338971E4125B75 /* EditorView.swift in Sources */,
 				F349E4CBB1D3B18C6BA2E30C /* EditorViewModel.swift in Sources */,
 				28E46ECEAA56FCC3D2EF738A /* ExportService.swift in Sources */,

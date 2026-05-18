@@ -17,7 +17,9 @@ struct EditorView: View {
 
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            BananaTheme.partyRadial.ignoresSafeArea()
+            ConfettiBackground(showsGradient: false, density: 0.5)
+                .opacity(0.55)
 
             VStack(spacing: 0) {
                 toolbar
@@ -41,10 +43,19 @@ struct EditorView: View {
         }
         .overlay {
             if viewModel.isExporting {
-                ProgressView()
-                    .scaleEffect(1.5)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.black.opacity(0.5))
+                ZStack {
+                    Color.black.opacity(0.55).ignoresSafeArea()
+                    VStack(spacing: 12) {
+                        ProgressView()
+                            .scaleEffect(1.5)
+                            .tint(.white)
+                        Text("Exporting…")
+                            .font(BananaTheme.body(15))
+                            .foregroundStyle(.white)
+                    }
+                    .padding(28)
+                    .bananaCard(fill: BananaTheme.dapperBrown.opacity(0.85), padding: 0)
+                }
             }
         }
     }
@@ -56,27 +67,28 @@ struct EditorView: View {
                 dismiss()
             } label: {
                 Image(systemName: "xmark")
-                    .font(.title2)
-                    .foregroundColor(.white)
             }
+            .buttonStyle(BananaCircleButtonStyle(tint: .red, size: 44))
 
             Spacer()
 
-            HStack(spacing: 20) {
+            HStack(spacing: 12) {
                 Button {
                     viewModel.undo()
                 } label: {
                     Image(systemName: "arrow.uturn.backward")
-                        .foregroundColor(viewModel.canUndo ? .white : .gray)
                 }
+                .buttonStyle(BananaCircleButtonStyle(tint: .blue, size: 44))
+                .opacity(viewModel.canUndo ? 1 : 0.35)
                 .disabled(!viewModel.canUndo)
 
                 Button {
                     viewModel.redo()
                 } label: {
                     Image(systemName: "arrow.uturn.forward")
-                        .foregroundColor(viewModel.canRedo ? .white : .gray)
                 }
+                .buttonStyle(BananaCircleButtonStyle(tint: .blue, size: 44))
+                .opacity(viewModel.canRedo ? 1 : 0.35)
                 .disabled(!viewModel.canRedo)
             }
 
@@ -91,12 +103,19 @@ struct EditorView: View {
                 }
             } label: {
                 Image(systemName: "square.and.arrow.up")
-                    .font(.title2)
-                    .foregroundColor(.white)
             }
+            .buttonStyle(BananaCircleButtonStyle(tint: .green, size: 44))
         }
-        .padding()
-        .background(Color.black.opacity(0.8))
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+        .background(
+            Rectangle()
+                .fill(.ultraThinMaterial)
+                .overlay(
+                    Rectangle().fill(BananaTheme.dapperBrown.opacity(0.45))
+                )
+                .ignoresSafeArea(edges: .top)
+        )
     }
 
     private var canvas: some View {
@@ -136,11 +155,13 @@ struct EditorView: View {
                 viewModel.selectSticker(nil)
             }
         }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
     }
 
     private var bottomBar: some View {
-        VStack(spacing: 0) {
-            // Filter picker
+        VStack(spacing: 12) {
+            // Filter picker (horizontal strip)
             FilterPickerView(
                 filters: viewModel.availableFilters.filter { !$0.isSecret || appState.isContentUnlocked($0.id) },
                 selectedFilter: viewModel.selectedFilter,
@@ -150,38 +171,48 @@ struct EditorView: View {
             )
             .environmentObject(appState)
 
-            // Action buttons
-            HStack(spacing: 40) {
+            // Big action buttons
+            HStack(spacing: 28) {
                 Button {
                     viewModel.showStickerPicker = true
                 } label: {
-                    VStack(spacing: 4) {
-                        Image(systemName: "face.smiling")
-                            .font(.title2)
-                        Text("Stickers")
-                            .font(.caption)
-                    }
-                    .foregroundColor(.white)
+                    Image(systemName: "face.smiling")
                 }
+                .buttonStyle(BananaCircleButtonStyle(tint: .purple, size: 64))
 
                 if viewModel.selectedStickerId != nil {
                     Button {
                         viewModel.deleteSelectedSticker()
                     } label: {
-                        VStack(spacing: 4) {
-                            Image(systemName: "trash")
-                                .font(.title2)
-                            Text("Delete")
-                                .font(.caption)
-                        }
-                        .foregroundColor(.red)
+                        Image(systemName: "trash")
                     }
+                    .buttonStyle(BananaCircleButtonStyle(tint: .red, size: 64))
+                    .transition(.scale.combined(with: .opacity))
                 }
+
+                Button {
+                    Task {
+                        if let result = await viewModel.exportImages() {
+                            exportResult = result
+                            showShareSheet = true
+                        }
+                    }
+                } label: {
+                    Image(systemName: "paperplane.fill")
+                }
+                .buttonStyle(BananaCircleButtonStyle(tint: .green, size: 64))
             }
-            .padding(.vertical, 16)
+            .animation(.spring(response: 0.3, dampingFraction: 0.65), value: viewModel.selectedStickerId)
+            .padding(.vertical, 14)
             .frame(maxWidth: .infinity)
-            .background(Color.black.opacity(0.8))
         }
+        .padding(.bottom, 8)
+        .background(
+            Rectangle()
+                .fill(.ultraThinMaterial)
+                .overlay(Rectangle().fill(BananaTheme.dapperBrown.opacity(0.45)))
+                .ignoresSafeArea(edges: .bottom)
+        )
     }
 }
 

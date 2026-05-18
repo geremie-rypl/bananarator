@@ -19,7 +19,7 @@ struct FilterPickerView: View {
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 12) {
+            HStack(spacing: 14) {
                 // No filter option
                 FilterThumbnail(
                     imageName: nil,
@@ -47,10 +47,10 @@ struct FilterPickerView: View {
                     }
                 }
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 4)
         }
-        .frame(height: 100)
-        .background(Color.black.opacity(0.8))
+        .frame(height: 116)
     }
 }
 
@@ -63,40 +63,42 @@ struct FilterThumbnail: View {
 
     var body: some View {
         Button(action: onTap) {
-            VStack(spacing: 4) {
+            VStack(spacing: 6) {
                 ZStack {
-                    if let imageName = imageName {
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .fill(BananaTheme.cream)
+
+                    if let imageName = imageName, UIImage(named: imageName) != nil {
                         Image(imageName)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 60, height: 60)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .frame(width: 68, height: 68)
+                            .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    } else if imageName == nil {
+                        Image(systemName: "nosign")
+                            .font(.system(size: 22, weight: .black))
+                            .foregroundStyle(Color.dapperBrown.opacity(0.55))
                     } else {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.gray.opacity(0.3))
-                            .frame(width: 60, height: 60)
-                            .overlay(
-                                Image(systemName: "nosign")
-                                    .foregroundColor(.gray)
-                            )
+                        BananaPlaceholderArt(symbol: "camera.filters", tint: .partyPurple, size: 52)
                     }
 
                     if isLocked {
-                        Color.black.opacity(0.5)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-
-                        Image(systemName: "lock.fill")
-                            .foregroundColor(.white)
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .fill(Color.black.opacity(0.5))
+                        GlowingLock(size: 18)
                     }
                 }
+                .frame(width: 68, height: 68)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(isSelected ? Color.pink : Color.clear, lineWidth: 3)
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .stroke(isSelected ? Color.bananaYellow : Color.white,
+                                lineWidth: isSelected ? 4 : 2)
                 )
+                .bananaShadow(BananaTheme.softShadow)
 
                 Text(name)
-                    .font(.caption2)
-                    .foregroundColor(.white)
+                    .font(BananaTheme.caption(11))
+                    .foregroundStyle(.white)
                     .lineLimit(1)
             }
         }
@@ -105,10 +107,13 @@ struct FilterThumbnail: View {
 }
 
 #Preview {
-    FilterPickerView(
-        filters: FilterItem.all,
-        selectedFilter: nil,
-        onSelect: { _ in }
-    )
-    .environmentObject(AppState())
+    ZStack {
+        BananaTheme.partyRadial.ignoresSafeArea()
+        FilterPickerView(
+            filters: FilterItem.all,
+            selectedFilter: nil,
+            onSelect: { _ in }
+        )
+        .environmentObject(AppState())
+    }
 }

@@ -9,30 +9,29 @@ struct BananaCard: View {
     @State private var showReportSheet = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 12) {
             // Image with blur overlay
             ZStack {
                 AsyncImage(url: URL(string: post.imageURL)) { phase in
                     switch phase {
                     case .empty:
                         Rectangle()
-                            .fill(Color.gray.opacity(0.3))
+                            .fill(BananaTheme.cream)
                             .aspectRatio(1, contentMode: .fit)
-                            .overlay(ProgressView())
+                            .overlay(ProgressView().tint(.partyPink))
 
                     case .success(let image):
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .blur(radius: isRevealed ? 0 : 20)
+                            .blur(radius: isRevealed ? 0 : 22)
 
                     case .failure:
                         Rectangle()
-                            .fill(Color.gray.opacity(0.3))
+                            .fill(BananaTheme.cream)
                             .aspectRatio(1, contentMode: .fit)
                             .overlay(
-                                Image(systemName: "photo")
-                                    .foregroundColor(.gray)
+                                BananaPlaceholderArt(symbol: "photo", tint: .partyPurple, size: 60)
                             )
 
                     @unknown default:
@@ -40,17 +39,24 @@ struct BananaCard: View {
                     }
                 }
                 .aspectRatio(1, contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                        .stroke(Color.white, lineWidth: 4)
+                )
 
                 if !isRevealed {
                     VStack(spacing: 8) {
                         Image(systemName: "eye.slash.fill")
-                            .font(.title)
-                            .foregroundColor(.white)
+                            .font(.system(size: 28, weight: .black))
+                            .foregroundStyle(Color.white)
 
                         Text("Tap to reveal")
-                            .font(.caption)
-                            .foregroundColor(.white)
+                            .font(BananaTheme.body(13))
+                            .foregroundStyle(Color.white)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(Capsule().fill(BananaTheme.pinkPurple))
                     }
                 }
             }
@@ -64,20 +70,20 @@ struct BananaCard: View {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("@\(post.username)")
-                        .font(.subheadline)
-                        .fontWeight(.medium)
+                        .font(BananaTheme.heading(15))
+                        .foregroundStyle(Color.dapperBrown)
 
-                    HStack(spacing: 4) {
+                    HStack(spacing: 6) {
                         if let filter = post.filterUsed {
-                            Text(filter)
-                                .font(.caption2)
-                                .foregroundColor(.secondary)
+                            Label(filter, systemImage: "camera.filters")
+                                .font(BananaTheme.caption(11))
+                                .foregroundStyle(Color.partyPurple)
                         }
 
                         if post.stickerCount > 0 {
-                            Text("\(post.stickerCount) stickers")
-                                .font(.caption2)
-                                .foregroundColor(.secondary)
+                            Label("\(post.stickerCount)", systemImage: "face.smiling")
+                                .font(BananaTheme.caption(11))
+                                .foregroundStyle(Color.partyPink)
                         }
                     }
                 }
@@ -85,16 +91,14 @@ struct BananaCard: View {
                 Spacer()
 
                 // Actions
-                HStack(spacing: 16) {
-                    Button {
-                        onUpvote()
-                    } label: {
+                HStack(spacing: 8) {
+                    Button(action: onUpvote) {
                         HStack(spacing: 4) {
-                            Image(systemName: "arrow.up.circle.fill")
+                            Image(systemName: "arrow.up.heart.fill")
                             Text("\(post.upvotes)")
                         }
-                        .foregroundColor(.pink)
                     }
+                    .buttonStyle(BananaChipButtonStyle(tint: .pink, filled: true))
 
                     Menu {
                         Button(role: .destructive) {
@@ -104,7 +108,10 @@ struct BananaCard: View {
                         }
                     } label: {
                         Image(systemName: "ellipsis")
-                            .foregroundColor(.secondary)
+                            .font(.system(size: 16, weight: .black))
+                            .foregroundStyle(Color.dapperBrown.opacity(0.6))
+                            .frame(width: 36, height: 36)
+                            .background(Circle().fill(BananaTheme.cream))
                     }
                 }
             }
@@ -114,25 +121,19 @@ struct BananaCard: View {
                     Image(systemName: "star.fill")
                     Text("Featured")
                 }
-                .font(.caption)
-                .foregroundColor(.orange)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(Color.orange.opacity(0.2))
-                .clipShape(Capsule())
+                .font(BananaTheme.caption(12))
+                .foregroundStyle(Color.dapperBrown)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(Capsule().fill(BananaTheme.bananaYellow))
+                .overlay(Capsule().stroke(Color.white, lineWidth: 2))
             }
         }
-        .padding()
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 20))
-        .shadow(color: .black.opacity(0.1), radius: 10, x: 0, y: 4)
+        .bananaCard(borderColor: post.isFeatured ? .bananaYellow : .partyPink,
+                    borderWidth: 4)
         .confirmationDialog("Report Post", isPresented: $showReportSheet) {
-            Button("Inappropriate Content", role: .destructive) {
-                onReport()
-            }
-            Button("Spam", role: .destructive) {
-                onReport()
-            }
+            Button("Inappropriate Content", role: .destructive) { onReport() }
+            Button("Spam", role: .destructive) { onReport() }
             Button("Cancel", role: .cancel) {}
         }
     }
@@ -146,12 +147,19 @@ struct FeaturedBananaCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            HStack {
+            HStack(spacing: 6) {
                 Image(systemName: "star.fill")
-                    .foregroundColor(.orange)
-                Text("Today's Featured")
-                    .font(.headline)
+                    .font(.system(size: 16, weight: .black))
+                    .foregroundStyle(Color.dapperBrown)
+                Text("TODAY'S FEATURED")
+                    .font(BananaTheme.heading(14))
+                    .foregroundStyle(Color.dapperBrown)
             }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+            .background(Capsule().fill(BananaTheme.bananaYellow))
+            .overlay(Capsule().stroke(Color.white, lineWidth: 3))
+            .bananaShadow(BananaTheme.softShadow)
 
             ZStack {
                 AsyncImage(url: URL(string: post.imageURL)) { phase in
@@ -159,77 +167,78 @@ struct FeaturedBananaCard: View {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .blur(radius: isRevealed ? 0 : 20)
+                            .blur(radius: isRevealed ? 0 : 22)
                     } else {
                         Rectangle()
-                            .fill(Color.gray.opacity(0.3))
+                            .fill(BananaTheme.cream)
+                            .overlay(BananaPlaceholderArt(symbol: "sparkles",
+                                                         tint: .partyPink, size: 80))
                     }
                 }
                 .aspectRatio(16/9, contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                        .stroke(Color.white, lineWidth: 4)
+                )
 
                 if !isRevealed {
                     Text("Tap to reveal")
-                        .font(.subheadline)
-                        .foregroundColor(.white)
+                        .font(BananaTheme.body(14))
+                        .foregroundStyle(.white)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
-                        .background(.ultraThinMaterial)
-                        .clipShape(Capsule())
+                        .background(Capsule().fill(BananaTheme.pinkPurple))
+                        .overlay(Capsule().stroke(Color.white, lineWidth: 2))
                 }
             }
             .onTapGesture {
-                withAnimation {
-                    isRevealed.toggle()
-                }
+                withAnimation { isRevealed.toggle() }
             }
 
             HStack {
                 Text("@\(post.username)")
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+                    .font(BananaTheme.heading(15))
+                    .foregroundStyle(Color.dapperBrown)
 
                 Spacer()
 
-                Button {
-                    onUpvote()
-                } label: {
+                Button(action: onUpvote) {
                     HStack(spacing: 4) {
-                        Image(systemName: "arrow.up.circle.fill")
+                        Image(systemName: "arrow.up.heart.fill")
                         Text("\(post.upvotes)")
                     }
-                    .foregroundColor(.pink)
                 }
+                .buttonStyle(BananaChipButtonStyle(tint: .pink, filled: true))
             }
         }
-        .padding()
-        .background(
-            LinearGradient(
-                colors: [Color.orange.opacity(0.1), Color.pink.opacity(0.1)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .bananaCard(gradient: LinearGradient(
+            colors: [Color.bananaYellow.opacity(0.55), Color.partyPink.opacity(0.35)],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        ), borderColor: .bananaYellow, borderWidth: 4)
     }
 }
 
 #Preview {
-    VStack {
-        BananaCard(
-            post: BananaPost(
-                userId: "123",
-                username: "bananafan",
-                imageURL: "https://example.com/image.jpg",
-                filterUsed: "Neon Dreams",
-                stickerCount: 3,
-                upvotes: 42,
-                createdAt: Date(),
-                isFeatured: false
-            ),
-            onUpvote: {},
-            onReport: {}
-        )
+    ZStack {
+        BananaTheme.partyRadial.ignoresSafeArea()
+        VStack {
+            BananaCard(
+                post: BananaPost(
+                    userId: "123",
+                    username: "bananafan",
+                    imageURL: "https://example.com/image.jpg",
+                    filterUsed: "Neon Dreams",
+                    stickerCount: 3,
+                    upvotes: 42,
+                    createdAt: Date(),
+                    isFeatured: false
+                ),
+                onUpvote: {},
+                onReport: {}
+            )
+        }
+        .padding()
     }
-    .padding()
 }
