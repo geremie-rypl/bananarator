@@ -16,70 +16,103 @@ struct StickerPack: Identifiable, Codable, Hashable {
 
     var isFree: Bool { price == nil }
 
-    // Built-in free stickers
-    static let freePack = StickerPack(
-        id: "stickers.free",
-        name: "Starter Pack",
-        previewImageName: "pack_free_preview",
-        stickers: [
-            StickerAsset(id: "sticker.free.star", imageName: "sticker_star", packId: "stickers.free"),
-            StickerAsset(id: "sticker.free.heart", imageName: "sticker_heart", packId: "stickers.free"),
-            StickerAsset(id: "sticker.free.sparkle", imageName: "sticker_sparkle", packId: "stickers.free"),
-            StickerAsset(id: "sticker.free.crown", imageName: "sticker_crown", packId: "stickers.free"),
-        ],
+    private static func indexed(packId: String, slug: String, count: Int) -> [StickerAsset] {
+        (1...count).map { i in
+            let n = String(format: "%02d", i)
+            return StickerAsset(
+                id: "sticker.\(slug).\(n)",
+                imageName: "sticker_\(slug)_\(n)",
+                packId: packId
+            )
+        }
+    }
+
+    static let cottagecore = StickerPack(
+        id: "stickers.cottagecore",
+        name: "Cottagecore",
+        previewImageName: "sticker_cottagecore_01",
+        stickers: indexed(packId: "stickers.cottagecore", slug: "cottagecore", count: 10),
         price: nil,
         isSecret: false
     )
 
-    // Premium packs
+    static let pride = StickerPack(
+        id: "stickers.pride",
+        name: "Pride",
+        previewImageName: "sticker_pride_01",
+        stickers: indexed(packId: "stickers.pride", slug: "pride", count: 10),
+        price: nil,
+        isSecret: false
+    )
+
     static let premiumPacks: [StickerPack] = [
+        StickerPack(
+            id: "stickers.gym",
+            name: "Do You Even",
+            previewImageName: "sticker_gym_01",
+            stickers: indexed(packId: "stickers.gym", slug: "gym", count: 12),
+            price: 0.99,
+            isSecret: false
+        ),
+        StickerPack(
+            id: "stickers.goth",
+            name: "Goth Mood",
+            previewImageName: "sticker_goth_01",
+            stickers: indexed(packId: "stickers.goth", slug: "goth", count: 10),
+            price: 0.99,
+            isSecret: false
+        ),
+        StickerPack(
+            id: "stickers.audacity",
+            name: "The Audacity",
+            previewImageName: "sticker_audacity_01",
+            stickers: indexed(packId: "stickers.audacity", slug: "audacity", count: 9),
+            price: 0.99,
+            isSecret: false
+        ),
+        StickerPack(
+            id: "stickers.witchy",
+            name: "Witchy Vibes",
+            previewImageName: "sticker_witchy_01",
+            stickers: indexed(packId: "stickers.witchy", slug: "witchy", count: 10),
+            price: 0.99,
+            isSecret: false
+        ),
+        StickerPack(
+            id: "stickers.y2k",
+            name: "So Random",
+            previewImageName: "sticker_y2k_01",
+            stickers: indexed(packId: "stickers.y2k", slug: "y2k", count: 10),
+            price: 0.99,
+            isSecret: false
+        ),
+        StickerPack(
+            id: "stickers.disco",
+            name: "Boogie Nights",
+            previewImageName: "sticker_disco_01",
+            stickers: indexed(packId: "stickers.disco", slug: "disco", count: 10),
+            price: 1.99,
+            isSecret: false
+        ),
+        StickerPack(
+            id: "stickers.drag",
+            name: "YAS Queen",
+            previewImageName: "sticker_drag_01",
+            stickers: indexed(packId: "stickers.drag", slug: "drag", count: 14),
+            price: 1.99,
+            isSecret: false
+        ),
         StickerPack(
             id: "stickers.fancy",
             name: "Fancy Pants",
-            previewImageName: "pack_fancy_preview",
-            stickers: [
-                StickerAsset(id: "sticker.fancy.tophat", imageName: "sticker_tophat", packId: "stickers.fancy"),
-                StickerAsset(id: "sticker.fancy.monocle", imageName: "sticker_monocle", packId: "stickers.fancy"),
-                StickerAsset(id: "sticker.fancy.bowtie", imageName: "sticker_bowtie", packId: "stickers.fancy"),
-                StickerAsset(id: "sticker.fancy.mustache", imageName: "sticker_mustache", packId: "stickers.fancy"),
-                StickerAsset(id: "sticker.fancy.cane", imageName: "sticker_cane", packId: "stickers.fancy"),
-            ],
-            price: 0.99,
+            previewImageName: "sticker_fancy_01",
+            stickers: indexed(packId: "stickers.fancy", slug: "fancy", count: 12),
+            price: 1.99,
             isSecret: false
-        ),
-        StickerPack(
-            id: "stickers.food",
-            name: "Food Fight",
-            previewImageName: "pack_food_preview",
-            stickers: [
-                StickerAsset(id: "sticker.food.pizza", imageName: "sticker_pizza", packId: "stickers.food"),
-                StickerAsset(id: "sticker.food.taco", imageName: "sticker_taco", packId: "stickers.food"),
-                StickerAsset(id: "sticker.food.donut", imageName: "sticker_donut", packId: "stickers.food"),
-                StickerAsset(id: "sticker.food.hotdog", imageName: "sticker_hotdog", packId: "stickers.food"),
-                StickerAsset(id: "sticker.food.icecream", imageName: "sticker_icecream", packId: "stickers.food"),
-            ],
-            price: 0.99,
-            isSecret: false
-        ),
-    ]
-
-    // Secret packs
-    static let secretPacks: [StickerPack] = [
-        StickerPack(
-            id: "secret.stickers.rare",
-            name: "Rare Finds",
-            previewImageName: "pack_rare_preview",
-            stickers: [
-                StickerAsset(id: "sticker.rare.diamond", imageName: "sticker_diamond", packId: "secret.stickers.rare"),
-                StickerAsset(id: "sticker.rare.rainbow", imageName: "sticker_rainbow", packId: "secret.stickers.rare"),
-                StickerAsset(id: "sticker.rare.fire", imageName: "sticker_fire", packId: "secret.stickers.rare"),
-            ],
-            price: nil,
-            isSecret: true
         ),
     ]
 
     static var all: [StickerPack] {
-        [freePack] + premiumPacks + secretPacks
+        [cottagecore, pride] + premiumPacks
     }
 }

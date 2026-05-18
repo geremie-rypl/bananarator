@@ -12,3 +12,6 @@ Package.resolved
 
 # macOS
 .DS_Store
+
+# Local sticker source sheets — split outputs land in Assets.xcassets
+incoming/
