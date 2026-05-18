@@ -42,14 +42,19 @@ class CameraService: NSObject, ObservableObject {
 
     private func setupSession() {
         session.beginConfiguration()
+        defer { session.commitConfiguration() }
+
         session.sessionPreset = .photo
 
-        // Add camera input
         guard let camera = AVCaptureDevice.default(
             .builtInWideAngleCamera,
             for: .video,
             position: currentCameraPosition
-        ) else { return }
+        ) else {
+            // No physical camera (simulator) — leave the session unconfigured
+            // so startSession() short-circuits below.
+            return
+        }
 
         do {
             let input = try AVCaptureDeviceInput(device: camera)
@@ -61,14 +66,10 @@ class CameraService: NSObject, ObservableObject {
             return
         }
 
-        // Add photo output
         if session.canAddOutput(photoOutput) {
             session.addOutput(photoOutput)
         }
 
-        session.commitConfiguration()
-
-        // Create preview layer
         let layer = AVCaptureVideoPreviewLayer(session: session)
         layer.videoGravity = .resizeAspectFill
         DispatchQueue.main.async {
@@ -80,6 +81,7 @@ class CameraService: NSObject, ObservableObject {
 
     func startSession() {
         guard !session.isRunning else { return }
+        guard !session.inputs.isEmpty else { return }
         DispatchQueue.global(qos: .userInitiated).async { [weak self] in
             self?.session.startRunning()
         }
