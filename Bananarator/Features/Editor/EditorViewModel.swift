@@ -139,7 +139,9 @@ class EditorViewModel: ObservableObject {
         isExporting = true
         defer { isExporting = false }
 
-        let filterOverlay: UIImage? = selectedFilter.flatMap { UIImage(named: $0.imageName) }
+        let filterOverlay: UIImage? = selectedFilter.flatMap {
+            FilterRenderer.overlayImage(for: $0, size: baseImage.size)
+        }
 
         let stickerData: [(image: UIImage, transform: CGAffineTransform)] = stickers.compactMap { sticker in
             guard let image = UIImage(named: sticker.asset.imageName) else { return nil }

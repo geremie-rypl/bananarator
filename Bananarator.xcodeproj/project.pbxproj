@@ -33,6 +33,7 @@
 		C157ECA08D338971E4125B75 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C858E02F11B0F5507AA96925 /* EditorView.swift */; };
 		C2C2FCC52BA5DB1C9D45362C /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A4CD4900AB82371D3012F6 /* StoreViewModel.swift */; };
 		CFDDC05DC7AD92A3A4F6E9CA /* ShowcaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC04E942E28F32356C507E21 /* ShowcaseViewModel.swift */; };
+		D3B51D08C54E5EFBA28BCA8F /* FilterRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE176E39A063B48458701EC /* FilterRenderer.swift */; };
 		DC560D7F16D2509F6A4A534F /* BananaCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B94B7E6744AD34FBB71C40 /* BananaCard.swift */; };
 		F2A580E64C3BC8F25ED48BA3 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4697D6709C7E113AC83AE2DC /* CameraViewModel.swift */; };
 		F349E4CBB1D3B18C6BA2E30C /* EditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A41A67E7357561B61FC095C /* EditorViewModel.swift */; };
@@ -59,6 +60,7 @@
 		6F9CEB70F80D480F39395D86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B94B7E6744AD34FBB71C40 /* BananaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaCard.swift; sourceTree = "<group>"; };
 		8A6EF3C35E272681AEE94943 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8AE176E39A063B48458701EC /* FilterRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRenderer.swift; sourceTree = "<group>"; };
 		8B9BB27F4521A6FFC032B710 /* BananaTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaTheme.swift; sourceTree = "<group>"; };
 		9E0272F8203F9230D2F372A7 /* BananaButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaButtonStyle.swift; sourceTree = "<group>"; };
 		A6A4CD4900AB82371D3012F6 /* StoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				C858E02F11B0F5507AA96925 /* EditorView.swift */,
 				5A41A67E7357561B61FC095C /* EditorViewModel.swift */,
 				68CDB183DA5C302B7E381CF6 /* FilterOverlayView.swift */,
+				8AE176E39A063B48458701EC /* FilterRenderer.swift */,
 				ACCDF597E07412D85480EE54 /* StickerView.swift */,
 			);
 			path = Editor;
@@ -315,6 +318,7 @@
 				28E46ECEAA56FCC3D2EF738A /* ExportService.swift in Sources */,
 				B8E01BC3FBD4494147E97621 /* FilterItem.swift in Sources */,
 				FE6BB866C416668BDCDCDE0E /* FilterOverlayView.swift in Sources */,
+				D3B51D08C54E5EFBA28BCA8F /* FilterRenderer.swift in Sources */,
 				6B3AE06E85C0879348F3544B /* FirebaseService.swift in Sources */,
 				2B0676EBBD9FF5398577BBB5 /* ShowcaseView.swift in Sources */,
 				CFDDC05DC7AD92A3A4F6E9CA /* ShowcaseViewModel.swift in Sources */,
