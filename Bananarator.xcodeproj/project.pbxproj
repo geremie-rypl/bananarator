@@ -21,11 +21,13 @@
 		538EF86968B15BE988332DCF /* BananaratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679C8E272A825E08F33E242 /* BananaratorApp.swift */; };
 		628202BD067ECC679154F67C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F9CEB70F80D480F39395D86 /* Assets.xcassets */; };
 		6B3AE06E85C0879348F3544B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062C797DB8017C32FE194E4 /* FirebaseService.swift */; };
+		71E2669B74CCC545BA462A77 /* SocialShareService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA217EDF7AA031BC6C0EE61C /* SocialShareService.swift */; };
 		7E711F5090BCDDC318D89B85 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B423AADBB6F409B2F1617B /* UserProfile.swift */; };
 		7EAE4FCBBECBF2F932CDA748 /* BananaTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BB27F4521A6FFC032B710 /* BananaTheme.swift */; };
 		A155D5BEAE0661771BDAD77E /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6CF411BF0B66E2DE3EE522 /* AnalyticsService.swift */; };
 		A9BF7FAC1D9FB895CA8358C4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F130D286A1E51DDABDB79C84 /* FirebaseStorage */; };
 		ADA4E2A0B93E8E9CE3A00747 /* StickerPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457A2249B84A6E26B738F6CB /* StickerPack.swift */; };
+		ADF498FDFADE15CAEA68745E /* SocialShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA865FAC4448AAB0AD88350 /* SocialShareSheet.swift */; };
 		AE5618AFAF5261C568A1D696 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B955F3FD7E2C15206A8C2D /* CameraView.swift */; };
 		AFFA78A7D7EEBB640AFE10A8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CB5C69285F9D6EF6E33E797D /* FirebaseFirestore */; };
 		B8E01BC3FBD4494147E97621 /* FilterItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A485D2FD67A7E8F7332313B /* FilterItem.swift */; };
@@ -55,6 +57,7 @@
 		58B955F3FD7E2C15206A8C2D /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		5A41A67E7357561B61FC095C /* EditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewModel.swift; sourceTree = "<group>"; };
 		68CDB183DA5C302B7E381CF6 /* FilterOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOverlayView.swift; sourceTree = "<group>"; };
+		6AA865FAC4448AAB0AD88350 /* SocialShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialShareSheet.swift; sourceTree = "<group>"; };
 		6D6CF411BF0B66E2DE3EE522 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		6F9CEB70F80D480F39395D86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B94B7E6744AD34FBB71C40 /* BananaCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BananaCard.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		C693C150F46CB41194A808CD /* Bananarator.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Bananarator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6B423AADBB6F409B2F1617B /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		C858E02F11B0F5507AA96925 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		CA217EDF7AA031BC6C0EE61C /* SocialShareService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialShareService.swift; sourceTree = "<group>"; };
 		D91238296AA2CE407D4809C4 /* ShowcaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseView.swift; sourceTree = "<group>"; };
 		DC04E942E28F32356C507E21 /* ShowcaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseViewModel.swift; sourceTree = "<group>"; };
 		DE23FD6071A02175C1F36796 /* ExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportService.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				C858E02F11B0F5507AA96925 /* EditorView.swift */,
 				5A41A67E7357561B61FC095C /* EditorViewModel.swift */,
 				68CDB183DA5C302B7E381CF6 /* FilterOverlayView.swift */,
+				6AA865FAC4448AAB0AD88350 /* SocialShareSheet.swift */,
 				ACCDF597E07412D85480EE54 /* StickerView.swift */,
 			);
 			path = Editor;
@@ -192,6 +197,7 @@
 				6D6CF411BF0B66E2DE3EE522 /* AnalyticsService.swift */,
 				DE23FD6071A02175C1F36796 /* ExportService.swift */,
 				2062C797DB8017C32FE194E4 /* FirebaseService.swift */,
+				CA217EDF7AA031BC6C0EE61C /* SocialShareService.swift */,
 				A7A3B72F16885C2C8064A9C6 /* StoreKitService.swift */,
 			);
 			path = Services;
@@ -318,6 +324,8 @@
 				6B3AE06E85C0879348F3544B /* FirebaseService.swift in Sources */,
 				2B0676EBBD9FF5398577BBB5 /* ShowcaseView.swift in Sources */,
 				CFDDC05DC7AD92A3A4F6E9CA /* ShowcaseViewModel.swift in Sources */,
+				71E2669B74CCC545BA462A77 /* SocialShareService.swift in Sources */,
+				ADF498FDFADE15CAEA68745E /* SocialShareSheet.swift in Sources */,
 				ADA4E2A0B93E8E9CE3A00747 /* StickerPack.swift in Sources */,
 				13D396B0E5F4ED2776E3DD23 /* StickerView.swift in Sources */,
 				51DBC6AE8704AC4CC1750018 /* StoreKitService.swift in Sources */,

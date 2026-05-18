@@ -51,6 +51,14 @@
     <string>Bananarator needs camera access to photograph your banana masterpiece.</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
     <string>Save your banana art to your camera roll.</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>instagram</string>
+        <string>instagram-stories</string>
+        <string>snapchat</string>
+        <string>twitter</string>
+        <string>tiktok</string>
+    </array>
     <key>ITSAppUsesNonExemptEncryption</key>
     <false/>
 </dict>

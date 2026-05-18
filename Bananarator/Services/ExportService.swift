@@ -122,20 +122,21 @@ class ExportService {
 
     // MARK: - Save & Share
 
+    /// Low-level primitive: writes the image to the user's Photos library as a new asset.
+    /// Callers (e.g. `SocialShareService`) are responsible for permission UX.
     func saveToPhotoLibrary(_ image: UIImage) async throws {
         try await PHPhotoLibrary.shared().performChanges {
             PHAssetChangeRequest.creationRequestForAsset(from: image)
         }
     }
 
-    func shareImage(_ image: UIImage, from viewController: UIViewController) {
-        let activityVC = UIActivityViewController(
-            activityItems: [image],
-            applicationActivities: nil
-        )
-        viewController.present(activityVC, animated: true)
+    /// PNG representation — preferred for Save to Photos and Instagram Stories
+    /// (preserves quality, no recompression artifacts on re-share).
+    func pngData(_ image: UIImage) -> Data? {
+        image.pngData()
     }
 
+    /// JPEG representation — preferred for the generic share sheet / Copy.
     func imageData(_ image: UIImage, quality: CGFloat = 0.9) -> Data? {
         image.jpegData(compressionQuality: quality)
     }
