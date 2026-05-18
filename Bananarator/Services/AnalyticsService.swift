@@ -53,4 +53,8 @@ class AnalyticsService {
     func trackSecretUnlock(_ secretId: String) {
         track(.secretUnlocked, properties: ["secret_id": secretId])
     }
+
+    func trackShare(platform: String) {
+        track(.share, properties: ["platform": platform])
+    }
 }

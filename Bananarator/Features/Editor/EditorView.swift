@@ -36,9 +36,10 @@ struct EditorView: View {
         }
         .sheet(isPresented: $showShareSheet) {
             if let result = exportResult {
-                ShareSheet(image: result.cleanImage) {
-                    appState.onShare()
+                SocialShareSheet(exportResult: result) { _ in
+                    // Share already recorded inside the sheet (appState.onShare + analytics).
                 }
+                .environmentObject(appState)
             }
         }
         .overlay {
@@ -214,26 +215,6 @@ struct EditorView: View {
                 .ignoresSafeArea(edges: .bottom)
         )
     }
-}
-
-struct ShareSheet: UIViewControllerRepresentable {
-    let image: UIImage
-    let onShare: () -> Void
-
-    func makeUIViewController(context: Context) -> UIActivityViewController {
-        let controller = UIActivityViewController(
-            activityItems: [image],
-            applicationActivities: nil
-        )
-        controller.completionWithItemsHandler = { _, completed, _, _ in
-            if completed {
-                onShare()
-            }
-        }
-        return controller
-    }
-
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }
 
 #Preview {
