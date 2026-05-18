@@ -15,3 +15,6 @@ Package.resolved
 
 # Local sticker source sheets — split outputs land in Assets.xcassets
 incoming/
+
+# Local visual-QA screenshots
+qa-screenshots/
